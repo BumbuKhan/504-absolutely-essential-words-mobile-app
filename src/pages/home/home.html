@@ -4,6 +4,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  Here will be a list of available lessons
+<ion-content>
+
+  <ion-list>
+    <button ion-item *ngFor="let item of items">
+      {{ item }}
+    </button>
+  </ion-list>
+
 </ion-content>
