@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
 import {AboutPage} from '../about/about';
+import {FeedbackPage} from '../feedback/feedback';
 
 @Component({
   selector: 'page-settings',
@@ -15,6 +16,7 @@ export class SettingsPage {
 
   sendFeedback() {
     console.log('sendFeedback() invoked');
+    this.navCtrl.push(FeedbackPage);
   }
 
   rateApp() {
