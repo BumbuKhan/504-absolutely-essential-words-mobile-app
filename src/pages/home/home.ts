@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
+import {LessonPage} from '../lesson/lesson';
+
+
 import {Lesson} from './lesson';
 
 @Component({
@@ -20,5 +23,9 @@ export class HomePage implements OnInit {
       var item = {title: 'Lesson ' + i};
       this.items.push(item);
     }
+  }
+
+  viewLesson(lessonData) {
+    this.navCtrl.push(LessonPage, {lessonData: lessonData});
   }
 }
