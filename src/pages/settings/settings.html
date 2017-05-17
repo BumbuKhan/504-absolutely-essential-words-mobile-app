@@ -6,6 +6,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  Here will be a list of application's settings
+<ion-content class="outer-content">
+  <ion-list>
+    <button ion-item (click)="sendFeedback()">
+      <ion-label>Feedback</ion-label>
+    </button>
+    <button ion-item (click)="rateApp()">
+      <ion-label>Rate this application</ion-label>
+    </button>
+    <button ion-item (click)="openAbout()">
+      <ion-label>About</ion-label>
+    </button>
+  </ion-list>
 </ion-content>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
 
 @Component({
   selector: 'page-settings',
@@ -11,4 +11,15 @@ export class SettingsPage {
 
   }
 
+  sendFeedback() {
+    console.log('sendFeedback() invoked');
+  }
+
+  rateApp() {
+    console.log('rateApp() invoked');
+  }
+
+  openAbout() {
+    console.log('openAbout() invoked');
+  }
 }
