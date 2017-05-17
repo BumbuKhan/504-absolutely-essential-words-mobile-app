@@ -6,7 +6,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="outer-content">
+<ion-content class="outer-content" padding-top>
+  <p ion-text color="middle" padding-left padding-right>If you don't want to see examples of using words just turn this
+    off</p>
+  <ion-list>
+    <ion-item>
+      <ion-toggle checked="true" color="secondary"></ion-toggle>
+      <ion-label>Use cases</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-toggle checked="false" color="secondary"></ion-toggle>
+      <ion-label>Show translate</ion-label>
+    </ion-item>
+    <button ion-item (click)="chooseLenguage()">
+      <ion-label>Translate to</ion-label>
+      <ion-note item-end>
+        Russian
+      </ion-note>
+    </button>
+  </ion-list>
+
   <ion-list>
     <button ion-item (click)="sendFeedback()">
       <ion-label>Feedback</ion-label>

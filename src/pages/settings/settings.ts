@@ -27,4 +27,8 @@ export class SettingsPage {
     console.log('openAbout() invoked');
     this.navCtrl.push(AboutPage);
   }
+
+  chooseLenguage(){
+    console.log('chooseLenguage() invoked');
+  }
 }
