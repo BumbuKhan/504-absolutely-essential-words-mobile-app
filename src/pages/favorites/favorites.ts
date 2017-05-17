@@ -17,8 +17,17 @@ export class FavoritesPage implements OnInit {
   ngOnInit() {
     // faked data feeding (soon this data will come from service)
     for (var i = 1; i <= 20; i++) {
-      var item = {word: 'word ' + i, description: 'Lorem ippsum dolor sitamet ' + i};
+      var item = {word: 'word ' + i, description: i + ' Lorem ippsum dolor sitamet, what if the text will be too long?'};
       this.items.push(item);
     }
+  }
+
+  showFavorite(){
+    console.log('Showing expanded data...');
+  }
+
+  removeFromFavorite($event){
+    console.log('Removing from favorite list...');
+    $event.stopPropagation();
   }
 }

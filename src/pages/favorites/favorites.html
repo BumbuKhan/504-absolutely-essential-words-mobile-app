@@ -7,8 +7,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of items">
-    <ion-card-header>{{item.word}}</ion-card-header>
-    <ion-card-content>{{item.description}}</ion-card-content>
-  </ion-card>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items" (click)="showFavorite()">
+      <ion-item>
+        <h2>{{item.word}}</h2>
+        <p>{{item.description}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="removeFromFavorite($event)">
+          <ion-icon name="trash"></ion-icon>
+          Remove
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>
