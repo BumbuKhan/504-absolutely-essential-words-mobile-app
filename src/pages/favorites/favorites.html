@@ -6,6 +6,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  Here will be a list of user's favorite words
+<ion-content>
+  <ion-card *ngFor="let item of items">
+    <ion-card-header>{{item.word}}</ion-card-header>
+    <ion-card-content>{{item.description}}</ion-card-content>
+  </ion-card>
 </ion-content>
