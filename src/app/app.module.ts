@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { FavoritesPage } from '../pages/favorites/favorites';
+import { ModalFavorite } from '../pages/favorites/modal/modal-favorite';
 import { HomePage } from '../pages/home/home';
 import { LessonPage } from '../pages/lesson/lesson';
 import { SettingsPage } from '../pages/settings/settings';
@@ -18,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     FavoritesPage,
+    ModalFavorite,
     HomePage,
     LessonPage,
     SettingsPage,
@@ -33,6 +35,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     FavoritesPage,
+    ModalFavorite,
     HomePage,
     LessonPage,
     SettingsPage,

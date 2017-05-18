@@ -9,7 +9,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of items" (click)="showFavorite()">
+    <ion-item-sliding *ngFor="let item of items" (click)="showFavorite(item)">
       <ion-item>
         <h2>{{item.word}}</h2>
         <p>{{item.description}}</p>
