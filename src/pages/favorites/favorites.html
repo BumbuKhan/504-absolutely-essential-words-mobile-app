@@ -11,7 +11,7 @@
     <ion-card *ngFor="let item of items">
         <!--<ion-card-header style="outline: 1px red dotted">{{item.word}}</ion-card-header>-->
         <ion-item>
-            <h2><b>{{item.word}}</b></h2>
+            <h3><b>{{item.word}}</b></h3>
             <button item-right clear ion-button class="favorite-btn favorite-btn__on" (click)="toggleFavorite($event)">
                 <ion-icon name="star"></ion-icon>
             </button>
