@@ -6,7 +6,11 @@
 
 <ion-content>
 
-  <ion-list>
+  <p padding text-center *ngIf="loading">
+    <ion-spinner padding></ion-spinner>
+  </p>
+
+  <ion-list *ngIf="!loading">
     <button ion-item *ngFor="let item of items" (click)="viewLesson(item)">
       {{ item.title }}
     </button>

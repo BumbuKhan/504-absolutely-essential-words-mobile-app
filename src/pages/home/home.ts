@@ -1,31 +1,33 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
 import {LessonPage} from '../lesson/lesson';
-
-
 import {Lesson} from './lesson';
 
+import {Http} from '@angular/http';
+import {LessonsProvider} from '../../providers/lessons/lessons';
+
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html',
+    providers: [Http]
 })
-export class HomePage implements OnInit {
-  private items: Lesson[] = [];
+export class HomePage {
+    private items: Lesson[] = [];
+    private loading = true;
 
-  constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, public lessonsProvider: LessonsProvider) {
 
-  }
-
-  ngOnInit() {
-    // faked data feeding (soon this data will come from service)
-    for (var i = 1; i <= 42; i++) {
-      var item = {title: 'Lesson ' + i};
-      this.items.push(item);
     }
-  }
 
-  viewLesson(lessonData) {
-    this.navCtrl.push(LessonPage, {lessonData: lessonData});
-  }
+    ionViewDidLoad(){
+        this.lessonsProvider.getAllLessons().subscribe(data => {
+            this.items = data.items;
+            this.loading = false;
+        });
+    }
+
+    viewLesson(lessonData) {
+        this.navCtrl.push(LessonPage, {lessonData: lessonData});
+    }
 }
