@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavController, ModalController} from 'ionic-angular';
 
 import {FavoriteWord} from './favorite-word';
-import {ModalFavorite} from './modal/modal-favorite';
+// import {ModalFavorite} from './modal/modal-favorite';
 
 @Component({
     selector: 'page-favorites',
@@ -11,7 +11,7 @@ import {ModalFavorite} from './modal/modal-favorite';
 export class FavoritesPage implements OnInit {
     private items: FavoriteWord[] = [];
 
-    constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+    constructor(public navCtrl: NavController/*, public modalCtrl: ModalController*/) {
     }
 
     ngOnInit() {
@@ -25,10 +25,10 @@ export class FavoritesPage implements OnInit {
         }
     }
 
-    showFavorite(data) {
+    /*showFavorite(data) {
         let modal = this.modalCtrl.create(ModalFavorite, {word: data.word});
         modal.present();
-    }
+    }*/
 
     removeFromFavorite($event) {
         console.log('Removing from favorite list...');

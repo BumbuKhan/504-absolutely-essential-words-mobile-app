@@ -3,7 +3,8 @@ import {ViewController, Platform, NavParams} from 'ionic-angular';
 
 @Component({
     selector: 'modal-favorite',
-    templateUrl: './modal-favorite.html'
+    templateUrl: './modal-favorite.html',
+
 })
 export class ModalFavorite {
     word: String = '';
