@@ -1,12 +1,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{data.title}}</ion-title>
+    <ion-title>{{lessonData.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  {{data | json}}
+<ion-content>
+
+  <p padding text-center *ngIf="loading">
+    <ion-spinner padding></ion-spinner>
+  </p>
+
+  <p *ngIf="!loading">
+    {{lessonData | json}}
+  </p>
 </ion-content>

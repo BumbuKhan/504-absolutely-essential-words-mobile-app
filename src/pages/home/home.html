@@ -11,7 +11,7 @@
   </p>
 
   <ion-list *ngIf="!loading">
-    <button ion-item *ngFor="let item of items" (click)="viewLesson(item)">
+    <button ion-item *ngFor="let item of items" (click)="viewLesson(item.id)">
       {{ item.title }}
     </button>
   </ion-list>

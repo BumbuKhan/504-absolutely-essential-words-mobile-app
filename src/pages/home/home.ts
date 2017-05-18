@@ -27,7 +27,7 @@ export class HomePage {
         });
     }
 
-    viewLesson(lessonData) {
-        this.navCtrl.push(LessonPage, {lessonData: lessonData});
+    viewLesson(lessonId) {
+        this.navCtrl.push(LessonPage, {lessonId: lessonId});
     }
 }

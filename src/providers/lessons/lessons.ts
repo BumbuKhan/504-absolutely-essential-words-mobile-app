@@ -11,4 +11,8 @@ export class LessonsProvider {
     getAllLessons() {
         return this.http.get('http://api.504.bumbu.tv.loc/lessons').map(res => res.json());
     }
+
+    getLessonDataById(id: Number){
+        return this.http.get('http://api.504.bumbu.tv.loc/lessons/' + id + '?expand=words').map(res => res.json());
+    }
 }
