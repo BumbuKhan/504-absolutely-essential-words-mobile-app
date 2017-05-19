@@ -11,7 +11,7 @@
     off</p>
   <ion-list>
     <ion-item>
-      <ion-toggle checked="true" color="secondary"></ion-toggle>
+      <ion-toggle checked={{settings.useCase}} color="secondary" (ionChange)="useCaseChangeHandler($event)"></ion-toggle>
       <ion-label>Use cases</ion-label>
     </ion-item>
   </ion-list>

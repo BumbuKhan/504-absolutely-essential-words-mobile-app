@@ -14,7 +14,11 @@ export class LessonPage {
   private lessonData = {};
   private loading = true;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public lessonsProvider: LessonsProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public lessonsProvider: LessonsProvider) {
+
     this.lessonId = this.navParams.data.lessonId;
   }
 

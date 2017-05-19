@@ -16,7 +16,10 @@ export class HomePage {
     private items: Lesson[] = [];
     private loading = true;
 
-    constructor(public navCtrl: NavController, public lessonsProvider: LessonsProvider) {
+    constructor(
+        public navCtrl: NavController,
+        public lessonsProvider: LessonsProvider) {
+
     }
 
     ionViewDidLoad(){
