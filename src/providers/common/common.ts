@@ -12,13 +12,16 @@ export class CommonProvider {
     constructor(public http: Http, private storage: Storage) {
     }
 
-    doCache() {
+    doCache(callBack) {
         this.storage.get('lessons').then(lessons => {
             if (!lessons) {
                 // caching lessons...
                 this.http.get('http://api.504.bumbu.tv/lessons').map(res => res.json()).subscribe(lessons => {
                     this.storage.set('lessons', lessons);
+                    callBack();
                 });
+            } else {
+                callBack();
             }
         });
 
