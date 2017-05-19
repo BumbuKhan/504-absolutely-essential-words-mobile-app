@@ -13,11 +13,6 @@ import {Platform} from 'ionic-angular';
 })
 export class SettingsPage implements OnInit{
 
-  // settings by default
-  private defaultSettings = {
-    useCase: true
-  };
-
   // current settings
   private settings = {};
 
@@ -29,13 +24,7 @@ export class SettingsPage implements OnInit{
       
       // looking for settings key in local database...
       this.storage.get('settings').then(settings => {
-        // if there are no settings yet (first run of app) then pushing some defaults...
-        if (!settings) {
-            this.storage.set('settings', this.defaultSettings);
-            this.settings = this.defaultSettings;
-        } else {
-          this.settings = settings;
-        }
+        this.settings = settings;
       });
 
     });
