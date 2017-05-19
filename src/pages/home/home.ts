@@ -17,7 +17,6 @@ export class HomePage {
     private loading = true;
 
     constructor(public navCtrl: NavController, public lessonsProvider: LessonsProvider) {
-
     }
 
     ionViewDidLoad(){
