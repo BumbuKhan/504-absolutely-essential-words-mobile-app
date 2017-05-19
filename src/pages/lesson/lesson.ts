@@ -24,4 +24,8 @@ export class LessonPage {
             this.loading = false;
         });
   }
+
+  toggleFavorite($event){
+    console.log('toggling...');
+  }
 }

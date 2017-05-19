@@ -7,13 +7,39 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="outer-content">
 
   <p padding text-center *ngIf="loading">
     <ion-spinner padding></ion-spinner>
   </p>
 
-  <p *ngIf="!loading">
-    {{lessonData | json}}
-  </p>
+  <ion-card *ngFor="let item of lessonData.words">
+      <ion-item>
+          <h2><b>{{item.word}}</b></h2>
+          <button item-right clear ion-button class="favorite-btn favorite-btn__off" (click)="toggleFavorite($event)">
+              <ion-icon name="star"></ion-icon>
+          </button>
+      </ion-item>
+      <ion-card-content>
+        {{item.definition}}
+
+        <div class="word-desription">
+          <table class="word-desription__table">
+            <tr>
+              <td><span class="word-description__option">a</span></td>
+              <td><span class="word-description__text">{{item.example_a}}</span></td>
+            </tr>
+            <tr>
+              <td><span class="word-description__option">b</span></td>
+              <td><span class="word-description__text">{{item.example_b}}</span></td>
+            </tr>
+            <tr>
+              <td><span class="word-description__option">c</span></td>
+              <td><span class="word-description__text">{{item.example_c}}</span></td>
+            </tr>
+          </table>
+        </div>
+      </ion-card-content>
+  </ion-card>
+
 </ion-content>
