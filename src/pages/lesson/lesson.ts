@@ -27,11 +27,6 @@ export class LessonPage {
     }
 
     ionViewDidLoad() {
-        /*this.lessonsProvider.getLessonDataById(this.lessonId).subscribe(data => {
-         this.lessonData = data;
-         this.loading = false;
-         });*/
-
         this.lessonsProvider.getWords().then(data => {
             let curLessonsWords = data.filter(item => {
                 return item.lesson_id == this.lessonId;

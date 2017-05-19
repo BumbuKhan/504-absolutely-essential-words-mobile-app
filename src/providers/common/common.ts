@@ -16,7 +16,7 @@ export class CommonProvider {
         this.storage.get('lessons').then(lessons => {
             if (!lessons) {
                 // caching lessons...
-                this.http.get('http://api.504.bumbu.tv.loc/lessons').map(res => res.json()).subscribe(lessons => {
+                this.http.get('http://api.504.bumbu.tv/lessons').map(res => res.json()).subscribe(lessons => {
                     this.storage.set('lessons', lessons);
                     callBack();
                 });
@@ -30,7 +30,7 @@ export class CommonProvider {
         this.storage.get('words').then(words => {
             if (!words) {
                 // caching words
-                this.http.get('http://api.504.bumbu.tv.loc/words').map(res => res.json()).subscribe(words => {
+                this.http.get('http://api.504.bumbu.tv/words').map(res => res.json()).subscribe(words => {
                    this.storage.set('words', words);
                 });
             }
