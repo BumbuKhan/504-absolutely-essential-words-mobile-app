@@ -16,4 +16,21 @@ export class LessonsProvider {
     getWords() {
         return this.storage.get('words');
     }
+
+    toggleFavoriteWord(wordId, state){
+        this.storage.get('words').then(words => {
+            let newWords = words.filter((word) => {
+                if(word.id == wordId) {
+                    word.is_favorite = state;
+                }
+
+                return word;
+            });
+
+            console.log('newWords', newWords);
+
+            // save back to the storage...
+            this.storage.set('words', newWords);
+        })
+    }
 }

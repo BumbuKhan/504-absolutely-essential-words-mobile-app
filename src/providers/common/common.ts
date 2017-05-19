@@ -12,7 +12,7 @@ export class CommonProvider {
     constructor(public http: Http, private storage: Storage) {
     }
 
-    cacheLessons(callBack){
+    cacheLessons(callBack) {
         this.storage.get('lessons').then(lessons => {
             if (!lessons) {
                 // caching lessons...
@@ -31,7 +31,16 @@ export class CommonProvider {
             if (!words) {
                 // caching words
                 this.http.get('http://api.504.bumbu.tv/words').map(res => res.json()).subscribe(words => {
-                   this.storage.set('words', words);
+
+                    // I have to add 'is_favorite' key to each item (word), but first I'll drink a cup of tea...
+                    let res = words.filter((word) => {
+                        let mutatedWord = word;
+                        mutatedWord.is_favorite = false;
+
+                        return mutatedWord;
+                    });
+
+                    this.storage.set('words', res);
                 });
             }
         });

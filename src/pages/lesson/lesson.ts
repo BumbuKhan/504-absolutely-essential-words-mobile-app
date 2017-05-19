@@ -45,7 +45,9 @@ export class LessonPage {
         });
     }
 
-    toggleFavorite($event) {
-        console.log('toggling...');
+    toggleFavorite(item) {
+        item.is_favorite = !item.is_favorite;
+
+        this.lessonsProvider.toggleFavoriteWord(item.id, item.is_favorite);
     }
 }
