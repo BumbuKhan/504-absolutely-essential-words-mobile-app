@@ -23,7 +23,7 @@
       <ion-card-content>
         {{item.definition}}
 
-        <div class="word-desription">
+        <div class="word-desription" *ngIf="useCase">
           <table class="word-desription__table">
             <tr>
               <td><span class="word-description__option">a</span></td>
