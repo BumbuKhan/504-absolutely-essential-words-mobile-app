@@ -12,11 +12,15 @@
         <!--<ion-card-header style="outline: 1px red dotted">{{item.word}}</ion-card-header>-->
         <ion-item>
             <h3><b>{{item.word}}</b></h3>
-            <button item-right clear ion-button class="favorite-btn favorite-btn__on" (click)="toggleFavorite($event)">
+            <button item-right clear ion-button
+                    class="favorite-btn"
+                    [ngClass]="{'favorite-btn__on': item.is_favorite}"
+                    (click)="toggleFavorite(item)">
+
                 <ion-icon name="star"></ion-icon>
             </button>
         </ion-item>
-        <ion-card-content>{{item.description}}</ion-card-content>
+        <ion-card-content>{{item.definition}}</ion-card-content>
     </ion-card>
 
 </ion-content>

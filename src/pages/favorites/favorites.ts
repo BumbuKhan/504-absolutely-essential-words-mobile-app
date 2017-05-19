@@ -1,27 +1,27 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
-import {FavoriteWord} from './favorite-word';
+import {LessonsProvider} from '../../providers/lessons/lessons';
 
 @Component({
     selector: 'page-favorites',
     templateUrl: 'favorites.html'
 })
-export class FavoritesPage implements OnInit {
-    private items: FavoriteWord[] = [];
+export class FavoritesPage {
+    private items = [];
 
-    constructor(public navCtrl: NavController) {
-    }
+    constructor(public navCtrl: NavController, private lessonsProvider: LessonsProvider) {}
 
-    ngOnInit() {
-        // faked data feeding (soon this data will come from service)
-        for (var i = 1; i <= 20; i++) {
-            var item = {
-                word: 'word ' + i,
-                description: i + ' Lorem ippsum dolor sitamet, what if the text will be too long?'
-            };
-            this.items.push(item);
-        }
+    ionViewWillEnter(){
+        this.lessonsProvider.getWords().then(words => {
+            let res = words.filter(word => {
+                if(word.is_favorite){
+                    return word;
+                }
+            });
+
+            this.items = res;
+        });
     }
 
     removeFromFavorite($event) {
@@ -29,7 +29,9 @@ export class FavoritesPage implements OnInit {
         $event.stopPropagation();
     }
 
-    toggleFavorite($event){
-        console.log('Triggering the state...');
+    toggleFavorite(item) {
+        item.is_favorite = !item.is_favorite;
+
+        this.lessonsProvider.toggleFavoriteWord(item.id, item.is_favorite);
     }
 }

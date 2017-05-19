@@ -26,7 +26,13 @@ export class LessonPage {
         this.lessonId = this.navParams.data.lessonId;
     }
 
-    ionViewDidLoad() {
+    ionViewWillEnter() {
+        this.platform.ready().then(() => {
+            this.settingsProvider.getSettings().then(settings => {
+                this.useCase = settings.useCase;
+            });
+        });
+
         this.lessonsProvider.getWords().then(data => {
             let curLessonsWords = data.filter(item => {
                 return item.lesson_id == this.lessonId;
@@ -34,14 +40,6 @@ export class LessonPage {
 
             this.words = curLessonsWords;
             this.loading = false;
-        });
-    }
-
-    ionViewWillEnter() {
-        this.platform.ready().then(() => {
-            this.settingsProvider.getSettings().then(settings => {
-                this.useCase = settings.useCase;
-            });
         });
     }
 
