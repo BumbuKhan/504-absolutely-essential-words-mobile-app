@@ -27,8 +27,6 @@ export class LessonsProvider {
                 return word;
             });
 
-            console.log('newWords', newWords);
-
             // save back to the storage...
             this.storage.set('words', newWords);
         })

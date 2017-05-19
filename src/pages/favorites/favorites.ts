@@ -25,7 +25,6 @@ export class FavoritesPage {
     }
 
     removeFromFavorite($event) {
-        console.log('Removing from favorite list...');
         $event.stopPropagation();
     }
 
