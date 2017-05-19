@@ -1,6 +1,7 @@
 import {NgModule, ErrorHandler} from '@angular/core';
-import { IonicStorageModule } from '@ionic/storage';
+import {HttpModule} from '@angular/http';
 import {BrowserModule} from '@angular/platform-browser';
+import {IonicStorageModule} from '@ionic/storage';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 
@@ -16,8 +17,9 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
-import {HttpModule} from '@angular/http';
 import {LessonsProvider} from '../providers/lessons/lessons';
+import {CommonProvider} from '../providers/common/common';
+import {SettingsProvider} from '../providers/settings/settings';
 
 @NgModule({
     declarations: [
@@ -54,6 +56,8 @@ import {LessonsProvider} from '../providers/lessons/lessons';
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         LessonsProvider,
+        CommonProvider,
+        SettingsProvider,
     ]
 })
 export class AppModule {
