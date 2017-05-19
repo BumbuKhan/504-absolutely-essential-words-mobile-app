@@ -16,6 +16,11 @@ export class SettingsProvider {
     }
 
     setDefaultSettings() {
+
+        // forced cleaning
+        /*this.storage.set('lessons', null);
+        this.storage.set('words', null);*/
+
         // looking for settings key in local database...
         this.storage.get('settings').then(settings => {
             // if there are no settings yet (first run of app) then pushing some defaults...

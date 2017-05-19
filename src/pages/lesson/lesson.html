@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{lessonData.title}}</ion-title>
+    <ion-title>Lesson</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -13,7 +13,7 @@
     <ion-spinner padding></ion-spinner>
   </p>
 
-  <ion-card *ngFor="let item of lessonData.words">
+  <ion-card *ngFor="let item of words">
       <ion-item>
           <h2><b>{{item.word}}</b></h2>
           <button item-right clear ion-button class="favorite-btn favorite-btn__off" (click)="toggleFavorite($event)">

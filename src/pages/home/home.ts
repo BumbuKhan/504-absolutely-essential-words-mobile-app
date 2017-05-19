@@ -28,13 +28,17 @@ export class HomePage implements OnInit {
         this.platform.ready().then((readySource) => {
             this.settingsProvider.setDefaultSettings(); // mapping default settings
 
-            // caching all lessons, words and e.t.c to the local database
-            this.commonProvider.doCache(() => {
+            // caching all lessons to the local database
+            this.commonProvider.cacheLessons(() => {
+                // once caching is done hide loading spinner and render the list...
                 this.lessonsProvider.getAllLessons().then(data => {
                     this.items = data.items;
                     this.loading = false;
                 });
             });
+
+            // caching all words to the local database
+            this.commonProvider.cacheWords();
         });
     }
 

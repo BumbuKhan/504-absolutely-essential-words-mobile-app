@@ -13,7 +13,7 @@ export class LessonsProvider {
         return this.storage.get('lessons');
     }
 
-    getLessonDataById(id: Number){
-        return this.http.get('http://api.504.bumbu.tv/lessons/' + id + '?expand=words').map(res => res.json());
+    getWords() {
+        return this.storage.get('words');
     }
 }
