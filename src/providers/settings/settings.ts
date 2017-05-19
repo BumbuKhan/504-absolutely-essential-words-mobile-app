@@ -25,4 +25,8 @@ export class SettingsProvider {
         });
     }
 
+    getSettings(){
+        return this.storage.get('settings');
+    }
+
 }

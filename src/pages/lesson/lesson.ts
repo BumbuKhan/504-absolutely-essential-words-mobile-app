@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import {Http} from '@angular/http';
 import {LessonsProvider} from '../../providers/lessons/lessons';
-import {Storage} from '@ionic/storage';
+import {SettingsProvider} from '../../providers/settings/settings';
 import {Platform} from 'ionic-angular';
 
 @Component({
@@ -20,8 +20,8 @@ export class LessonPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public storage: Storage,
     public platform: Platform,
+    public settingsProvider: SettingsProvider,
     public lessonsProvider: LessonsProvider) {
 
     this.lessonId = this.navParams.data.lessonId;
@@ -36,9 +36,9 @@ export class LessonPage {
 
   ionViewWillEnter(){
     this.platform.ready().then(() => {
-      this.storage.get('settings').then(settings => {
-        this.useCase = settings.useCase;
-      })
+        this.settingsProvider.getSettings().then(settings => {
+           this.useCase = settings.useCase;
+        });
     });
   }
 

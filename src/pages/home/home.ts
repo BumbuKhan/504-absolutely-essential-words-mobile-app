@@ -27,14 +27,16 @@ export class HomePage implements OnInit {
     ngOnInit() {
         this.platform.ready().then((readySource) => {
             this.settingsProvider.setDefaultSettings(); // mapping default settings
-            this.commonProvider.doCache();              // caching all lessons, words and e.t.c
+            this.commonProvider.doCache();              // caching all lessons, words and e.t.c to the local database
         });
     }
 
     ionViewDidLoad() {
-        this.lessonsProvider.getAllLessons().then(data => {
-            this.items = data.items;
-            this.loading = false;
+        this.platform.ready().then(() => {
+            this.lessonsProvider.getAllLessons().then(data => {
+                this.items = data.items;
+                this.loading = false;
+            });
         });
     }
 
