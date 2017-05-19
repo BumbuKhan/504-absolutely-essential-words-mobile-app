@@ -23,4 +23,10 @@
         <ion-card-content>{{item.definition}}</ion-card-content>
     </ion-card>
 
+    <ion-card *ngIf="items.length === 0">
+        <ion-card-content text-center>You don't have any <ion-icon name="star" class="favorite-btn__on"></ion-icon>-ed word</ion-card-content>
+    </ion-card>
+
+
+
 </ion-content>
