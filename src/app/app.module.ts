@@ -19,6 +19,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {LessonsProvider} from '../providers/lessons/lessons';
 import {CommonProvider} from '../providers/common/common';
 import {SettingsProvider} from '../providers/settings/settings';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import {SettingsProvider} from '../providers/settings/settings';
     imports: [
         BrowserModule,
         HttpModule,
+        FormsModule,
         IonicModule.forRoot(MyApp),
         IonicStorageModule.forRoot()
     ],

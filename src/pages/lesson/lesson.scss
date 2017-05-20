@@ -1,19 +1,20 @@
-.word-desription{
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px #e0e0e0 solid;
-    color: #999999;
+.word-desription {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px #e0e0e0 solid;
+  color: #999999;
 }
 
-.word-description__option{
-    display: inline-block;
-    padding-right: 10px;
+.word-description__option {
+  display: inline-block;
+  padding-right: 10px;
+  font-size: 10px;
 }
 
-.word-description__text{
-    font-size: 11px;
+.word-description__text {
+  font-size: 11px;
 }
 
-.word-desription__table tr td{
-    vertical-align: top;
+.word-desription__table tr td {
+  vertical-align: top;
 }
