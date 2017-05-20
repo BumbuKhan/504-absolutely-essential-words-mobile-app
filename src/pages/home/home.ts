@@ -17,13 +17,16 @@ export class HomePage implements OnInit {
     private items = [];
     private loading = true;
 
+    private splash = true;
+    private tabBarElement: any;
+
     constructor(public navCtrl: NavController,
                 public platform: Platform,
                 public commonProvider: CommonProvider,
                 public lessonsProvider: LessonsProvider,
                 public feedBackProvider: FeedBackProvider,
                 public settingsProvider: SettingsProvider) {
-
+        this.tabBarElement = document.querySelector('.tabbar');
     }
 
     ngOnInit() {
@@ -49,5 +52,13 @@ export class HomePage implements OnInit {
 
     viewLesson(lessonId, lessonTitle) {
         this.navCtrl.push(LessonPage, {lessonId: lessonId, lessonTitle: lessonTitle});
+    }
+
+    ionViewDidLoad() {
+        this.tabBarElement.style.display = 'none';
+        setTimeout(() => {
+            this.splash = false;
+            this.tabBarElement.style.display = 'flex';
+        }, 4000);
     }
 }

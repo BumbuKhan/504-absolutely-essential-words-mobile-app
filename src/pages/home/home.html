@@ -1,18 +1,26 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+    <div class="flb">
+        <div class="Aligner-item Aligner-item--top"></div>
+        <img src="assets/logo.png">
+        <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
+</div>
+
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <p padding text-center *ngIf="loading">
-    <ion-spinner padding></ion-spinner>
-  </p>
+    <p padding text-center *ngIf="loading">
+        <ion-spinner padding></ion-spinner>
+    </p>
 
-  <ion-list *ngIf="!loading">
-    <button ion-item *ngFor="let item of items" (click)="viewLesson(item.id, item.title)">
-      {{ item.title }}
-    </button>
-  </ion-list>
+    <ion-list *ngIf="!loading">
+        <button ion-item *ngFor="let item of items" (click)="viewLesson(item.id, item.title)">
+            {{ item.title }}
+        </button>
+    </ion-list>
 
 </ion-content>
