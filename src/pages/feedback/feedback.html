@@ -6,7 +6,7 @@
 
 <ion-content>
     <div padding>
-        <form #feedBackForm="ngForm" (submit)="onSubmit()">
+        <form #feedBackForm="ngForm" (submit)="onSubmit()" *ngIf="!formSubmitted">
             <ion-textarea
                     type="text"
                     placeholder="Write your feedback here"
@@ -20,4 +20,13 @@
             <button ion-button block [disabled]="!feedBackForm.form.valid">Send</button>
         </form>
     </div>
+
+    <ion-card *ngIf="formSubmitted">
+        <ion-item>
+            Success
+        </ion-item>
+        <ion-card-content>
+            Thank you, you awesome!
+        </ion-card-content>
+    </ion-card>
 </ion-content>

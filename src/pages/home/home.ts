@@ -6,6 +6,7 @@ import {LessonPage} from '../lesson/lesson';
 import {CommonProvider} from '../../providers/common/common';
 import {SettingsProvider} from '../../providers/settings/settings';
 import {LessonsProvider} from '../../providers/lessons/lessons';
+import {FeedBackProvider} from '../../providers/feed-back/feed-back';
 
 @Component({
     selector: 'page-home',
@@ -20,6 +21,7 @@ export class HomePage implements OnInit {
                 public platform: Platform,
                 public commonProvider: CommonProvider,
                 public lessonsProvider: LessonsProvider,
+                public feedBackProvider: FeedBackProvider,
                 public settingsProvider: SettingsProvider) {
 
     }
@@ -39,6 +41,9 @@ export class HomePage implements OnInit {
 
             // caching all words to the local database
             this.commonProvider.cacheWords();
+
+            // sending feedBack if there is any
+            this.feedBackProvider.sendFeedBackFromLocalStorageToServer();
         });
     }
 

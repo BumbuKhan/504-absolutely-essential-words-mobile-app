@@ -20,6 +20,7 @@ import {LessonsProvider} from '../providers/lessons/lessons';
 import {CommonProvider} from '../providers/common/common';
 import {SettingsProvider} from '../providers/settings/settings';
 import {FormsModule} from "@angular/forms";
+import { FeedBackProvider } from '../providers/feed-back/feed-back';
 
 @NgModule({
     declarations: [
@@ -57,6 +58,7 @@ import {FormsModule} from "@angular/forms";
         LessonsProvider,
         CommonProvider,
         SettingsProvider,
+    FeedBackProvider,
     ]
 })
 export class AppModule {

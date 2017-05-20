@@ -2,17 +2,22 @@ import {Component} from '@angular/core';
 import {NavController, NavParams, Platform} from 'ionic-angular';
 import {Headers, Http} from '@angular/http';
 
+import {FeedBackProvider} from "../../providers/feed-back/feed-back";
+
 @Component({
     selector: 'page-feedback',
     templateUrl: 'feedback.html',
 })
 export class FeedbackPage {
+    private formSubmitted = false;
     private message: String = '';
 
-    private headers = new Headers({'Content-Type': 'application/json'});
-    private API_URL = 'http://api.504.bumbu.tv/feed-back';
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                private platform: Platform,
+                private feedBackProvider: FeedBackProvider) {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private http: Http) {
+        this.feedBackProvider.clearFeedBack();
     }
 
     onSubmit() {
@@ -24,12 +29,18 @@ export class FeedbackPage {
                 add_datetime: new Date().toString()
             };
 
-            this.http
-                .post(this.API_URL, JSON.stringify(data), {headers: this.headers})
-                .toPromise()
-                .then(res => console.log(data))
-                .catch();
+            this.feedBackProvider.saveFeedBackToLocalStorage(data);
+            this.formSubmitted = true;
 
+            /*this.http
+             .post(this.API_URL, JSON.stringify(data), {headers: this.headers})
+             .toPromise()
+             .then(res => console.log(data))
+             .catch();*/
         });
+    }
+
+    ionViewDidLoad(){
+        console.log('ionViewDidLoad()');
     }
 }
