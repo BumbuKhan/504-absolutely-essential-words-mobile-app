@@ -31,15 +31,15 @@ export class LessonPage {
             this.settingsProvider.getSettings().then(settings => {
                 this.useCase = settings.useCase;
             });
-        });
 
-        this.lessonsProvider.getWords().then(data => {
-            let curLessonsWords = data.filter(item => {
-                return item.lesson_id == this.lessonId;
+            this.lessonsProvider.getWords().then(data => {
+                let curLessonsWords = data.filter(item => {
+                    return item.lesson_id == this.lessonId;
+                });
+
+                this.words = curLessonsWords;
+                this.loading = false;
             });
-
-            this.words = curLessonsWords;
-            this.loading = false;
         });
     }
 
