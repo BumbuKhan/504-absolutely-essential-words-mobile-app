@@ -13,6 +13,7 @@ import {Platform} from 'ionic-angular';
 })
 export class LessonPage {
     private lessonId: Number;
+    private lessonTitle: String;
     private words = [];
     private loading = true;
     private useCase = false;
@@ -24,6 +25,7 @@ export class LessonPage {
                 public lessonsProvider: LessonsProvider) {
 
         this.lessonId = this.navParams.data.lessonId;
+        this.lessonTitle = this.navParams.data.lessonTitle;
     }
 
     ionViewWillEnter() {

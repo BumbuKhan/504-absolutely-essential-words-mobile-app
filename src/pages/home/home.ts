@@ -42,7 +42,7 @@ export class HomePage implements OnInit {
         });
     }
 
-    viewLesson(lessonId) {
-        this.navCtrl.push(LessonPage, {lessonId: lessonId});
+    viewLesson(lessonId, lessonTitle) {
+        this.navCtrl.push(LessonPage, {lessonId: lessonId, lessonTitle: lessonTitle});
     }
 }

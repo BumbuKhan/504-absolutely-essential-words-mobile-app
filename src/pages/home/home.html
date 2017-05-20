@@ -10,7 +10,7 @@
   </p>
 
   <ion-list *ngIf="!loading">
-    <button ion-item *ngFor="let item of items" (click)="viewLesson(item.id)">
+    <button ion-item *ngFor="let item of items" (click)="viewLesson(item.id, item.title)">
       {{ item.title }}
     </button>
   </ion-list>
