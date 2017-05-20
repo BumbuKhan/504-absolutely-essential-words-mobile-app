@@ -22,11 +22,11 @@ export class FeedBackProvider {
                 this.http
                     .post(this.API_URL, JSON.stringify(feedBack), {headers: this.headers})
                     .toPromise()
-                    .then(res => console.log(feedBack))
+                    .then(() => {
+                        // flushing localstorage...
+                        this.clearFeedBack();
+                    })
                     .catch();
-
-                // flushing localstorage...
-                this.clearFeedBack();
             }
         });
     }

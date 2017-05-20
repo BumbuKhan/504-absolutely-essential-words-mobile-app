@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, Platform} from 'ionic-angular';
-import {Headers, Http} from '@angular/http';
+import {Headers} from '@angular/http';
 
 import {FeedBackProvider} from "../../providers/feed-back/feed-back";
 
