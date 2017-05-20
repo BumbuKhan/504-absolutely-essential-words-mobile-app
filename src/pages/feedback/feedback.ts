@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, Platform} from 'ionic-angular';
-import {Headers} from '@angular/http';
+import {Platform} from 'ionic-angular';
 
 import {FeedBackProvider} from "../../providers/feed-back/feed-back";
 
@@ -12,9 +11,7 @@ export class FeedbackPage {
     private formSubmitted = false;
     private message: String = '';
 
-    constructor(public navCtrl: NavController,
-                public navParams: NavParams,
-                private platform: Platform,
+    constructor(private platform: Platform,
                 private feedBackProvider: FeedBackProvider) {
 
         this.feedBackProvider.clearFeedBack();
@@ -31,12 +28,6 @@ export class FeedbackPage {
 
             this.feedBackProvider.saveFeedBackToLocalStorage(data);
             this.formSubmitted = true;
-
-            /*this.http
-             .post(this.API_URL, JSON.stringify(data), {headers: this.headers})
-             .toPromise()
-             .then(res => console.log(data))
-             .catch();*/
         });
     }
 
