@@ -51,7 +51,7 @@ export class LessonPage {
         setTimeout(() => {
             let wordMentions = document.querySelectorAll('.mentioned-word');
 
-            for(var i = 0; i < wordMentions.length; i++){
+            for (var i = 0; i < wordMentions.length; i++) {
                 wordMentions[i].addEventListener('click', (event) => {
                     var e = e || window.event;
                     var target = e.target || e.srcElement;
@@ -75,7 +75,7 @@ export class LessonPage {
             var findedWordObj;
 
             words.forEach((item) => {
-                if (item.word === word) {
+                if ((item.word.search(new RegExp(word, 'i')) != -1) || (word.search(new RegExp(item.word, 'i')) != -1)) {
                     findedWordObj = item;
                 }
             });
