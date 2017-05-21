@@ -30,7 +30,7 @@ export class CommonProvider {
         this.storage.get('words').then(words => {
             if (!words) {
                 // caching words
-                this.http.get('http://api.504.bumbu.tv.loc/words').map(res => res.json()).subscribe(words => {
+                this.http.get('http://api.504.bumbu.tv/words').map(res => res.json()).subscribe(words => {
 
                     // I have to add 'is_favorite' key to each item (word), but first I'll drink a cup of tea...
                     let res = words.filter((word) => {
