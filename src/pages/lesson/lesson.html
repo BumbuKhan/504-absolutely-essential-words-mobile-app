@@ -46,7 +46,7 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-card *ngIf="words.length === 0">
+    <ion-card *ngIf="(words.length === 0) && (!loading)">
         <ion-card-content text-center>There is nothing to view so far...</ion-card-content>
     </ion-card>
 
