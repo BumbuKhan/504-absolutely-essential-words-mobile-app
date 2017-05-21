@@ -55,9 +55,7 @@ export class LessonPage {
     }
 
     openMentionedWordModal() {
-        console.log('openMentionedWordModal()');
-
-        let modal = this.modalCtrl.create(MentionedWordPage);
+        let modal = this.modalCtrl.create(MentionedWordPage, {title: 'Lorem ipsum dolor'});
         modal.present();
     }
 }

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, ViewController} from 'ionic-angular';
+import {NavParams, ViewController} from 'ionic-angular';
 
 import {LessonsProvider} from '../../providers/lessons/lessons';
 
@@ -8,10 +8,12 @@ import {LessonsProvider} from '../../providers/lessons/lessons';
     templateUrl: 'word-mention.html',
 })
 export class MentionedWordPage {
-    constructor(public navCtrl: NavController,
-                public navParams: NavParams,
+    constructor(public navParams: NavParams,
                 public viewCtrl: ViewController,
                 public lessonsProvider: LessonsProvider) {
+
+        let title = this.navParams.data.title;
+        console.log(title);
     }
 
     dismiss() {
