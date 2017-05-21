@@ -1,12 +1,10 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavParams, ModalController, Platform} from 'ionic-angular';
 
 import {Http} from '@angular/http';
 import {LessonsProvider} from '../../providers/lessons/lessons';
 import {SettingsProvider} from '../../providers/settings/settings';
 import {MentionedWordPage} from './word-mention';
-import {Platform} from 'ionic-angular';
-import {ModalController} from 'ionic-angular';
 
 @Component({
     selector: 'page-lesson',
@@ -20,8 +18,7 @@ export class LessonPage {
     private loading = true;
     private useCase = false;
 
-    constructor(public navCtrl: NavController,
-                public navParams: NavParams,
+    constructor(public navParams: NavParams,
                 public platform: Platform,
                 public settingsProvider: SettingsProvider,
                 public modalCtrl: ModalController,
@@ -55,7 +52,29 @@ export class LessonPage {
     }
 
     openMentionedWordModal() {
-        let modal = this.modalCtrl.create(MentionedWordPage, {title: 'Lorem ipsum dolor'});
-        modal.present();
+        let word = 'jealous';
+
+        this.lessonsProvider.getWords().then((words) => {
+            var findedWordObj;
+
+            words.forEach((item) => {
+                if (item.word === word) {
+                    findedWordObj = item;
+                }
+            });
+
+            // but in which lesson this word is?
+            if(findedWordObj){
+                this.lessonsProvider.getAllLessons().then((lessons) => {
+                    lessons.items.forEach((lesson) => {
+                        if(lesson.id == findedWordObj.lesson_id) {
+                            findedWordObj.lesson_title = lesson.title;
+                            let profileModal = this.modalCtrl.create(MentionedWordPage, {words: findedWordObj});
+                            profileModal.present();
+                        }
+                    })
+                });
+            }
+        });
     }
 }

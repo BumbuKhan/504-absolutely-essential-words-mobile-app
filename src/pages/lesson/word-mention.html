@@ -12,6 +12,14 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="outer-content">
+    <p padding-left padding-right>The word <b>'{{word}}'</b> is from <b>{{lesson | lowercase}}</b></p>
+
+    <ion-card>
+        <ion-item>
+            <h3><b>{{word}}</b></h3>
+        </ion-item>
+        <ion-card-content>{{definition}}</ion-card-content>
+    </ion-card>
 
 </ion-content>

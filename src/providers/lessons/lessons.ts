@@ -17,10 +17,10 @@ export class LessonsProvider {
         return this.storage.get('words');
     }
 
-    toggleFavoriteWord(wordId, state){
+    toggleFavoriteWord(wordId, state) {
         this.storage.get('words').then(words => {
             let newWords = words.filter((word) => {
-                if(word.id == wordId) {
+                if (word.id == wordId) {
                     word.is_favorite = state;
                 }
 
@@ -29,6 +29,29 @@ export class LessonsProvider {
 
             // save back to the storage...
             this.storage.set('words', newWords);
+        })
+    }
+
+    getMentionedWord(word) {
+        return this.getWords().then((words) => {
+            var findedWordObj;
+
+            words.forEach((item) => {
+                if (item.word === word) {
+                    findedWordObj = item;
+                }
+            });
+
+            // but in which lesson this word is?
+            this.getAllLessons().then((lessons) => {
+                lessons.items.forEach((lesson) => {
+                    if(lesson.id == findedWordObj.lesson_id) {
+                        findedWordObj.lesson_title = lesson.title;
+                    }
+                })
+            });
+
+            return Promise.resolve(findedWordObj);
         })
     }
 }
