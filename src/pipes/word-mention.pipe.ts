@@ -10,7 +10,7 @@ export class WordMentionPipe implements PipeTransform {
         }
 
         function replacer(str, p1, p2, offset, s) {
-            return '<span class="mentioned-word">' + str.slice(2, str.length - 2) + '*</span>';
+            return '<span class="mentioned-word">' + str.slice(2, str.length - 2) + '</span>';
         }
 
         return value.replace(/\*\*([^*]*)\*\*/ig, replacer);
