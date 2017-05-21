@@ -31,20 +31,18 @@
                 <table class="word-desription__table">
                     <tr>
                         <td><span class="word-description__option">a</span></td>
-                        <td><span class="word-description__text">{{item.example_a}}</span></td>
+                        <td><span class="word-description__text" [innerHTML]="item.example_a | wordMention | wordMakeBold"></span></td>
                     </tr>
                     <tr>
                         <td><span class="word-description__option">b</span></td>
-                        <td><span class="word-description__text">{{item.example_b}}</span></td>
+                        <td><span class="word-description__text" [innerHTML]="item.example_b | wordMention | wordMakeBold"></span></td>
                     </tr>
                     <tr>
                         <td><span class="word-description__option">c</span></td>
-                        <td><span class="word-description__text">{{item.example_c}}</span></td>
+                        <td><span class="word-description__text" [innerHTML]="item.example_c | wordMention | wordMakeBold"></span></td>
                     </tr>
                 </table>
             </div>
-
-            <button ion-button (click)="openMentionedWordModal()">Mentioned word</button>
         </ion-card-content>
     </ion-card>
 

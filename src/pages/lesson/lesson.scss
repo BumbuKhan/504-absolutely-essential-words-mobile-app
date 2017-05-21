@@ -3,6 +3,10 @@
   padding-top: 10px;
   border-top: 1px #e0e0e0 solid;
   color: #999999;
+
+  b{
+    color: #666666;
+  }
 }
 
 .word-description__option {
@@ -17,4 +21,10 @@
 
 .word-desription__table tr td {
   vertical-align: top;
+}
+
+.mentioned-word{
+  color: #666666;
+  font-weight: bold;
+  text-decoration: underline;
 }

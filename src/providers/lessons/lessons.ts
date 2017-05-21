@@ -45,7 +45,7 @@ export class LessonsProvider {
             // but in which lesson this word is?
             this.getAllLessons().then((lessons) => {
                 lessons.items.forEach((lesson) => {
-                    if(lesson.id == findedWordObj.lesson_id) {
+                    if (lesson.id == findedWordObj.lesson_id) {
                         findedWordObj.lesson_title = lesson.title;
                     }
                 })

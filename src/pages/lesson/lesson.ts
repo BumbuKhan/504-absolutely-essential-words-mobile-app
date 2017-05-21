@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, Renderer2} from '@angular/core';
 import {NavParams, ModalController, Platform} from 'ionic-angular';
 
 import {Http} from '@angular/http';
@@ -18,10 +18,12 @@ export class LessonPage {
     private loading = true;
     private useCase = false;
 
-    constructor(public navParams: NavParams,
+    constructor(private renderer: Renderer2,
+                public navParams: NavParams,
                 public platform: Platform,
                 public settingsProvider: SettingsProvider,
                 public modalCtrl: ModalController,
+                private elRef: ElementRef,
                 public lessonsProvider: LessonsProvider) {
 
         this.lessonId = this.navParams.data.lessonId;
@@ -45,6 +47,18 @@ export class LessonPage {
         });
     }
 
+    ionViewDidLoad() {
+        setTimeout(() => {
+            let wordMentions = document.querySelectorAll('.mentioned-word');
+
+            for(var i = 0; i < wordMentions.length; i++){
+                wordMentions[i].addEventListener('click', () => {
+                    console.log('openin word mention modal');
+                })
+            }
+        }, 2000);
+    }
+
     toggleFavorite(item) {
         item.is_favorite = !item.is_favorite;
 
@@ -64,10 +78,10 @@ export class LessonPage {
             });
 
             // but in which lesson this word is?
-            if(findedWordObj){
+            if (findedWordObj) {
                 this.lessonsProvider.getAllLessons().then((lessons) => {
                     lessons.items.forEach((lesson) => {
-                        if(lesson.id == findedWordObj.lesson_id) {
+                        if (lesson.id == findedWordObj.lesson_id) {
                             findedWordObj.lesson_title = lesson.title;
                             let profileModal = this.modalCtrl.create(MentionedWordPage, {words: findedWordObj});
                             profileModal.present();

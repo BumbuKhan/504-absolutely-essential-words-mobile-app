@@ -24,6 +24,9 @@ import {SettingsProvider} from '../providers/settings/settings';
 import {FormsModule} from "@angular/forms";
 import {FeedBackProvider} from '../providers/feed-back/feed-back';
 
+import {WordMentionPipe} from '../pipes/word-mention.pipe';
+import {WordMakeBoldPipe} from '../pipes/word-make-bold.pipe';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -34,7 +37,9 @@ import {FeedBackProvider} from '../providers/feed-back/feed-back';
         SettingsPage,
         AboutPage,
         FeedbackPage,
-        TabsPage
+        TabsPage,
+        WordMentionPipe,
+        WordMakeBoldPipe,
     ],
     imports: [
         BrowserModule,

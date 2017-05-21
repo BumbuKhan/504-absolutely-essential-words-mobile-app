@@ -16,7 +16,8 @@ export class MentionedWordPage {
 
     constructor(public navParams: NavParams,
                 private lessonsProvider: LessonsProvider,
-                public viewCtrl: ViewController) {}
+                public viewCtrl: ViewController) {
+    }
 
     ionViewDidLoad() {
         this.lesson = this.navParams.data.words.lesson_title;
