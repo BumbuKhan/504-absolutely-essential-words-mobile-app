@@ -52,8 +52,12 @@ export class LessonPage {
             let wordMentions = document.querySelectorAll('.mentioned-word');
 
             for(var i = 0; i < wordMentions.length; i++){
-                wordMentions[i].addEventListener('click', () => {
-                    console.log('openin word mention modal');
+                wordMentions[i].addEventListener('click', (event) => {
+                    var e = e || window.event;
+                    var target = e.target || e.srcElement;
+                    var text = target.textContent || text.innerText;
+
+                    this.openMentionedWordModal(text);
                 })
             }
         }, 2000);
@@ -65,8 +69,7 @@ export class LessonPage {
         this.lessonsProvider.toggleFavoriteWord(item.id, item.is_favorite);
     }
 
-    openMentionedWordModal() {
-        let word = 'jealous';
+    openMentionedWordModal(word) {
 
         this.lessonsProvider.getWords().then((words) => {
             var findedWordObj;
@@ -88,6 +91,8 @@ export class LessonPage {
                         }
                     })
                 });
+            } else {
+                console.log('no match...');
             }
         });
     }
