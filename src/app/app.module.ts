@@ -8,6 +8,8 @@ import {MyApp} from './app.component';
 import {FavoritesPage} from '../pages/favorites/favorites';
 import {HomePage} from '../pages/home/home';
 import {LessonPage} from '../pages/lesson/lesson';
+import {MentionedWordPage} from '../pages/lesson/word-mention';
+
 import {SettingsPage} from '../pages/settings/settings';
 import {AboutPage} from '../pages/about/about';
 import {FeedbackPage} from '../pages/feedback/feedback';
@@ -28,6 +30,7 @@ import {FeedBackProvider} from '../providers/feed-back/feed-back';
         FavoritesPage,
         HomePage,
         LessonPage,
+        MentionedWordPage,
         SettingsPage,
         AboutPage,
         FeedbackPage,
@@ -46,6 +49,7 @@ import {FeedBackProvider} from '../providers/feed-back/feed-back';
         FavoritesPage,
         HomePage,
         LessonPage,
+        MentionedWordPage,
         SettingsPage,
         AboutPage,
         FeedbackPage,
