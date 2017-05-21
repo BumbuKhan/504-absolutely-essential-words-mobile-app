@@ -21,5 +21,7 @@
         </ion-item>
         <ion-card-content>{{definition}}</ion-card-content>
     </ion-card>
+	
+	<p *ngIf="favorite" padding-left padding-right>Hey, I see this is your <ion-icon name="star" class="favorite-btn__on"></ion-icon> word</p>
 
 </ion-content>
