@@ -60,7 +60,7 @@ export class LessonPage {
                     this.openMentionedWordModal(text);
                 })
             }
-        }, 2000);
+        }, 1000);
     }
 
     toggleFavorite(item) {
