@@ -45,22 +45,22 @@ export class LessonPage {
                 this.loading = false;
             });
         });
-    }
 
-    ionViewDidLoad() {
-        setTimeout(() => {
-            let wordMentions = document.querySelectorAll('.mentioned-word');
+        if(!this.useCase){
+            setTimeout(() => {
+                let wordMentions = document.querySelectorAll('.mentioned-word');
 
-            for (var i = 0; i < wordMentions.length; i++) {
-                wordMentions[i].addEventListener('click', (event) => {
-                    var e = e || window.event;
-                    var target = e.target || e.srcElement;
-                    var text = target.textContent || text.innerText;
+                for (var i = 0; i < wordMentions.length; i++) {
+                    wordMentions[i].addEventListener('click', (event) => {
+                        var e = e || window.event;
+                        var target = e.target || e.srcElement;
+                        var text = target.textContent || text.innerText;
 
-                    this.openMentionedWordModal(text);
-                })
-            }
-        }, 1000);
+                        this.openMentionedWordModal(text);
+                    })
+                }
+            }, 1000);
+        }
     }
 
     toggleFavorite(item) {
