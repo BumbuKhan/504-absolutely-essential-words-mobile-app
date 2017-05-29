@@ -16,7 +16,7 @@ export class LessonPage {
     private lessonTitle: String;
     private words = [];
     private loading = true;
-    private useCase = false;
+    private useCase: Boolean;
 
     constructor(private renderer: Renderer2,
                 public navParams: NavParams,
@@ -34,6 +34,23 @@ export class LessonPage {
         this.platform.ready().then(() => {
             this.settingsProvider.getSettings().then(settings => {
                 this.useCase = settings.useCase;
+
+                if (this.useCase) {
+                    setTimeout(() => {
+                        let wordMentions = document.querySelectorAll('.mentioned-word');
+
+                        for (var i = 0; i < wordMentions.length; i++) {
+                            wordMentions[i].removeEventListener('click');
+                            wordMentions[i].addEventListener('click', (event) => {
+                                var e = e || window.event;
+                                var target = e.target || e.srcElement;
+                                var text = target.textContent || text.innerText;
+
+                                this.openMentionedWordModal(text);
+                            })
+                        }
+                    }, 1000);
+                }
             });
 
             this.lessonsProvider.getWords().then(data => {
@@ -45,22 +62,6 @@ export class LessonPage {
                 this.loading = false;
             });
         });
-
-        if(!this.useCase){
-            setTimeout(() => {
-                let wordMentions = document.querySelectorAll('.mentioned-word');
-
-                for (var i = 0; i < wordMentions.length; i++) {
-                    wordMentions[i].addEventListener('click', (event) => {
-                        var e = e || window.event;
-                        var target = e.target || e.srcElement;
-                        var text = target.textContent || text.innerText;
-
-                        this.openMentionedWordModal(text);
-                    })
-                }
-            }, 1000);
-        }
     }
 
     toggleFavorite(item) {
