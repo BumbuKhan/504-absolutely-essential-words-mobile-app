@@ -17,8 +17,8 @@ export class HomePage implements OnInit {
     private items = [];
     private loading = true;
 
-    private splash = true;
-    private tabBarElement: any;
+    // private splash = true;
+    // private tabBarElement: any;
 
     constructor(public navCtrl: NavController,
                 public platform: Platform,
@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
                 public lessonsProvider: LessonsProvider,
                 public feedBackProvider: FeedBackProvider,
                 public settingsProvider: SettingsProvider) {
-        this.tabBarElement = document.querySelector('.tabbar');
+        // this.tabBarElement = document.querySelector('.tabbar');
     }
 
     ngOnInit() {
@@ -55,10 +55,10 @@ export class HomePage implements OnInit {
     }
 
     ionViewDidLoad() {
-        this.tabBarElement.style.display = 'none';
+        /*this.tabBarElement.style.display = 'none';
         setTimeout(() => {
             this.splash = false;
             this.tabBarElement.style.display = 'flex';
-        }, 4000);
+        }, 4000);*/
     }
 }

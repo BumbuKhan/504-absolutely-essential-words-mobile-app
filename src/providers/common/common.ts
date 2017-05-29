@@ -10,13 +10,20 @@ import 'rxjs/add/operator/map';
 export class CommonProvider {
 
     constructor(public http: Http, private storage: Storage) {
+        this.storage.set('lessons', null);
+        this.storage.set('words', null);
     }
 
     cacheLessons(callBack) {
         this.storage.get('lessons').then(lessons => {
             if (!lessons) {
                 // caching lessons...
-                this.http.get('http://api.504.bumbu.tv/lessons').map(res => res.json()).subscribe(lessons => {
+                this.http.get('http://api.504.bumbu.tv/lessons?expand=words').map(res => res.json()).subscribe(lessons => {
+
+                    lessons.items.forEach(function (i, v) {
+                        i.wordsCount = i.words.length;
+                    });
+
                     this.storage.set('lessons', lessons);
                     callBack();
                 });
