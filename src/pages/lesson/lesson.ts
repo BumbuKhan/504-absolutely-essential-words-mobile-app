@@ -1,4 +1,4 @@
-import {Component, ElementRef, Renderer2} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavParams, ModalController, Platform} from 'ionic-angular';
 
 import {Http} from '@angular/http';
@@ -18,12 +18,10 @@ export class LessonPage {
     private loading = true;
     private useCase: Boolean;
 
-    constructor(private renderer: Renderer2,
-                public navParams: NavParams,
+    constructor(public navParams: NavParams,
                 public platform: Platform,
                 public settingsProvider: SettingsProvider,
                 public modalCtrl: ModalController,
-                private elRef: ElementRef,
                 public lessonsProvider: LessonsProvider) {
 
         this.lessonId = this.navParams.data.lessonId;
