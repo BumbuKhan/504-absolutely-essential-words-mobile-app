@@ -12,15 +12,12 @@ export class SettingsProvider {
     };
 
     constructor(private http: Http, private storage: Storage) {
-        console.log('Hello SettingsProvider Provider');
-    }
-
-    setDefaultSettings() {
-
         // forced cleaning
         // this.storage.set('lessons', null);
         // this.storage.set('words', null);
+    }
 
+    setDefaultSettings() {
         // looking for settings key in local database...
         this.storage.get('settings').then(settings => {
             // if there are no settings yet (first run of app) then pushing some defaults...
