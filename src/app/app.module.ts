@@ -67,7 +67,7 @@ import {WordMakeBoldPipe} from '../pipes/word-make-bold.pipe';
         LessonsProvider,
         CommonProvider,
         SettingsProvider,
-        FeedBackProvider,
+        FeedBackProvider
     ]
 })
 export class AppModule {
