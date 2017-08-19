@@ -16,7 +16,7 @@ export class FeedBackProvider {
         this.storage.set('feedBack', data);
     }
 
-    sendFeedBackFromLocalStorageToServer() {
+    /*sendFeedBackFromLocalStorageToServer() {
         this.storage.get('feedBack').then((feedBack) => {
             if (feedBack) {
                 this.http
@@ -29,7 +29,7 @@ export class FeedBackProvider {
                     .catch();
             }
         });
-    }
+    }*/
 
     clearFeedBack() {
         this.storage.set('feedBack', null);

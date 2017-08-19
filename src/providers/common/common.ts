@@ -10,8 +10,8 @@ import 'rxjs/add/operator/map';
 export class CommonProvider {
 
     constructor(public http: Http, private storage: Storage) {
-        // this.storage.set('lessons', null);
-        // this.storage.set('words', null);
+        this.storage.set('lessons', null);
+        this.storage.set('words', null);
     }
 
     cacheLessons(callBack) {

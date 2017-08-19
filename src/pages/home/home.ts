@@ -46,7 +46,7 @@ export class HomePage implements OnInit {
             this.commonProvider.cacheWords();
 
             // sending feedBack if there is any
-            this.feedBackProvider.sendFeedBackFromLocalStorageToServer();
+            // this.feedBackProvider.sendFeedBackFromLocalStorageToServer(); // temporary removed
         });
     }
 
