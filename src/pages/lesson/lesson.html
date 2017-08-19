@@ -1,53 +1,61 @@
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>{{lessonTitle}}</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>{{lessonTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="outer-content">
 
-    <p padding text-center *ngIf="loading">
-        <ion-spinner padding></ion-spinner>
-    </p>
+  <p padding text-center *ngIf="loading">
+    <ion-spinner padding></ion-spinner>
+  </p>
 
-    <ion-card *ngFor="let item of words">
-        <ion-item>
-            <h2><b>{{item.word}}</b></h2>
-            <button item-right clear ion-button
-                    class="favorite-btn"
-                    [ngClass]="{'favorite-btn__on': item.is_favorite}"
-                    (click)="toggleFavorite(item)">
+  <ion-card *ngFor="let item of words">
+    <ion-item>
+      <h2><b>{{item.word}}</b></h2>
+      <button item-right clear ion-button
+              class="favorite-btn"
+              [ngClass]="{'favorite-btn__on': item.is_favorite}"
+              (click)="toggleFavorite(item)">
 
-                <ion-icon name="star"></ion-icon>
-            </button>
-        </ion-item>
-        <ion-card-content>
-            {{item.definition}}
+        <ion-icon name="star"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-card-content>
+      {{item.definition}}
 
-            <div class="word-desription" *ngIf="useCase">
-                <table class="word-desription__table">
-                    <tr>
-                        <td><span class="word-description__option">a</span></td>
-                        <td><span class="word-description__text" [innerHTML]="(item.example_a | wordMention) | wordMakeBold"></span></td>
-                    </tr>
-                    <tr>
-                        <td><span class="word-description__option">b</span></td>
-                        <td><span class="word-description__text" [innerHTML]="(item.example_b | wordMention) | wordMakeBold"></span></td>
-                    </tr>
-                    <tr>
-                        <td><span class="word-description__option">c</span></td>
-                        <td><span class="word-description__text" [innerHTML]="(item.example_c | wordMention) | wordMakeBold"></span></td>
-                    </tr>
-                </table>
-            </div>
-        </ion-card-content>
-    </ion-card>
+      <div class="word-desription" *ngIf="useCase">
+        <table class="word-desription__table">
+          <tr>
+            <td><span class="word-description__option">a</span></td>
+            <td><span class="word-description__text" [innerHTML]="(item.example_a | wordMention) | wordMakeBold"></span>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="word-description__option">b</span></td>
+            <td><span class="word-description__text" [innerHTML]="(item.example_b | wordMention) | wordMakeBold"></span>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="word-description__option">c</span></td>
+            <td><span class="word-description__text" [innerHTML]="(item.example_c | wordMention) | wordMakeBold"></span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card *ngIf="(words.length === 0) && (!loading)">
-        <ion-card-content text-center>There is nothing to view so far...</ion-card-content>
-    </ion-card>
+  <ion-card *ngIf="(words.length === 0) && (!loading)">
+    <ion-card-content text-center>There is nothing to view so far...</ion-card-content>
+  </ion-card>
 
 </ion-content>
