@@ -11,8 +11,7 @@
 
 </ion-header>
 
-
-<ion-content class="outer-content">
+<ion-content class="outer-content" #popoverContent>
 
   <p padding text-center *ngIf="loading">
     <ion-spinner padding></ion-spinner>
@@ -58,4 +57,13 @@
     <ion-card-content text-center>There is nothing to view so far...</ion-card-content>
   </ion-card>
 
+  <div #popoverText class="text-to-change">
+    <div></div>
+  </div>
 </ion-content>
+
+<!--<ion-content #popoverContent padding class="popover-page">
+  <div #popoverText class="text-to-change">
+    <div></div>
+  </div>
+</ion-content>-->
