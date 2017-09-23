@@ -10,8 +10,8 @@ import 'rxjs/add/operator/map';
 export class CommonProvider {
 
     constructor(public http: Http, private storage: Storage) {
-        // this.storage.set('lessons', null);
-        // this.storage.set('words', null);
+         // this.storage.set('lessons', null);
+         // this.storage.set('words', null);
     }
 
     cacheLessons(callBack) {
@@ -35,7 +35,8 @@ export class CommonProvider {
 
     cacheWords() {
         this.storage.get('words').then(words => {
-            if (!words) {
+            if (words) {
+                console.log('Fetching words from API');
                 // caching words
                 this.http.get('http://api.504.bumbu.tv/words').map(res => res.json()).subscribe(words => {
 

@@ -2,11 +2,6 @@
 
   <ion-navbar>
     <ion-title>{{lessonTitle}}</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentPopover($event)">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -56,14 +51,4 @@
   <ion-card *ngIf="(words.length === 0) && (!loading)">
     <ion-card-content text-center>There is nothing to view so far...</ion-card-content>
   </ion-card>
-
-  <div #popoverText class="text-to-change">
-    <div></div>
-  </div>
 </ion-content>
-
-<!--<ion-content #popoverContent padding class="popover-page">
-  <div #popoverText class="text-to-change">
-    <div></div>
-  </div>
-</ion-content>-->

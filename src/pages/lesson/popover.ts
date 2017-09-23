@@ -4,10 +4,11 @@ import {NavParams} from 'ionic-angular';
 @Component({
   template: `
     <ion-item>
-      <ion-label>Training mode</ion-label>
-      <ion-toggle checked="false" color="secondary"></ion-toggle>
+      <ion-label>Training</ion-label>
+      <ion-toggle checked="false" color="secondary" (ionChange)="trainingModeChangeHandler($event)"></ion-toggle>
     </ion-item>
-    <p padding>In training mode words will be invisible until you tap them</p>
+    <p padding ion-text color="middle" style="margin-top: 0;">In training mode words will be hidden until you tap
+      them</p>
   `
 })
 export class PopoverPage {
@@ -15,6 +16,7 @@ export class PopoverPage {
   contentEle: any;
   textEle: any;
   fontFamily;
+  ulEle;
 
   colors = {
     'white': {
@@ -36,48 +38,56 @@ export class PopoverPage {
   };
 
   constructor(private navParams: NavParams) {
-
   }
 
   ngOnInit() {
     if (this.navParams.data) {
       this.contentEle = this.navParams.data.contentEle;
       this.textEle = this.navParams.data.textEle;
+      this.ulEle = this.navParams.data.ulEle;
 
       // this.background = this.getColorName(this.contentEle.style.backgroundColor);
       // this.setFontFamily();
     }
   }
 
-  /*getColorName(background) {
-    let colorName = 'white';
+  trainingModeChangeHandler(event) {
+    console.log(event);
 
-    if (!background) return 'white';
-
-    for (var key in this.colors) {
-      if (this.colors[key].bg == background) {
-        colorName = key;
-      }
+    if(event.checked){
+      this.textEle.style.fontSize = 30;
     }
+  }
 
-    return colorName;
-  }*/
+  /*getColorName(background) {
+   let colorName = 'white';
+
+   if (!background) return 'white';
+
+   for (var key in this.colors) {
+   if (this.colors[key].bg == background) {
+   colorName = key;
+   }
+   }
+
+   return colorName;
+   }*/
 
   /*setFontFamily() {
-    if (this.textEle.style.fontFamily) {
-      this.fontFamily = this.textEle.style.fontFamily.replace(/'/g, "");
-    }
-  }*/
+   if (this.textEle.style.fontFamily) {
+   this.fontFamily = this.textEle.style.fontFamily.replace(/'/g, "");
+   }
+   }*/
 
   /*changeBackground(color) {
-    this.background = color;
-    this.contentEle.style.backgroundColor = this.colors[color].bg;
-    this.textEle.style.color = this.colors[color].fg;
-  }*/
+   this.background = color;
+   this.contentEle.style.backgroundColor = this.colors[color].bg;
+   this.textEle.style.color = this.colors[color].fg;
+   }*/
 
   /*changeFontSize(direction) {
-    this.textEle.style.fontSize = direction;
-  }*/
+   this.textEle.style.fontSize = direction;
+   }*/
 
   changeFontFamily() {
     if (this.fontFamily) this.textEle.style.fontFamily = this.fontFamily;

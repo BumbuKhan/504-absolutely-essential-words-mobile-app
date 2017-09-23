@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>
-            Mentioned word
+          Mentioned word <sup>β</sup>
         </ion-title>
         <ion-buttons start>
             <button ion-button (click)="dismiss()">
@@ -21,7 +21,7 @@
         </ion-item>
         <ion-card-content>{{definition}}</ion-card-content>
     </ion-card>
-	
-	<p *ngIf="favorite" padding-left padding-right>Hey, I see this is your <ion-icon name="star" class="favorite-btn__on"></ion-icon> word</p>
+
+	<p *ngIf="favorite" padding-left padding-right>Hey, I see this is your <ion-icon name="star" class="favorite-btn__on"></ion-icon>-ed word</p>
 
 </ion-content>

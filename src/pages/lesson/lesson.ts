@@ -1,11 +1,10 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
-import {NavParams, ModalController, Platform, PopoverController} from 'ionic-angular';
+import {NavParams, ModalController, Platform} from 'ionic-angular';
 
 import {Http} from '@angular/http';
 import {LessonsProvider} from '../../providers/lessons/lessons';
 import {SettingsProvider} from '../../providers/settings/settings';
 import {MentionedWordPage} from './word-mention';
-import {PopoverPage} from './popover';
 
 @Component({
   selector: 'page-lesson',
@@ -21,28 +20,16 @@ export class LessonPage {
 
   @ViewChild('popoverContent', {read: ElementRef}) content: ElementRef;
   @ViewChild('popoverText', {read: ElementRef}) text: ElementRef;
+  @ViewChild('uls', {read: ElementRef}) ul: ElementRef;
 
   constructor(public navParams: NavParams,
               public platform: Platform,
               public settingsProvider: SettingsProvider,
               public modalCtrl: ModalController,
-              public lessonsProvider: LessonsProvider,
-              public popoverCtrl: PopoverController) {
+              public lessonsProvider: LessonsProvider) {
 
     this.lessonId = this.navParams.data.lessonId;
     this.lessonTitle = this.navParams.data.lessonTitle;
-  }
-
-  presentPopover(ev) {
-
-    let popover = this.popoverCtrl.create(PopoverPage, {
-      contentEle: this.content.nativeElement,
-      textEle: this.text.nativeElement
-    });
-
-    popover.present({
-      ev: ev
-    });
   }
 
   ionViewWillEnter() {
@@ -86,7 +73,6 @@ export class LessonPage {
   }
 
   openMentionedWordModal(word) {
-
     this.lessonsProvider.getWords().then((words) => {
       var findedWordObj;
 
