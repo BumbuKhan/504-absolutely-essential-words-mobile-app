@@ -4,4 +4,13 @@ Run `ionic link` to bind running app with once on the Ionic cloud
 
 Then after binding run `ionic upload` to upload
 
-Screenshots [you can find here](https://github.com/BumbuKhan/504-absolutely-essential-words-mobile-app/commit/b474385380f6c9d6f1ea81e907f7f99ce98fdf4a)
+Screenshots
+
+<img src="app-screenshots/1.png" height="400" />
+<img src="app-screenshots/2.png" height="400" />
+<img src="app-screenshots/3.png" height="400" />
+<img src="app-screenshots/4.png" height="400" />
+<img src="app-screenshots/5.png" height="400" />
+<img src="app-screenshots/6.png" height="400" />
+<img src="app-screenshots/7.png" height="400" />
+<img src="app-screenshots/8.png" height="400" />
