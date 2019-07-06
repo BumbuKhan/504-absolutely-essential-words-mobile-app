@@ -6,7 +6,7 @@ Then after binding run `ionic upload` to upload
 
 Screenshots
 
-<img src="app-screenshots/1.png" height="400" />
+<img src="app-screenshots/1.PNG" height="400" />
 <img src="app-screenshots/2.png" height="400" />
 <img src="app-screenshots/3.png" height="400" />
 <img src="app-screenshots/4.png" height="400" />
